@@ -215,6 +215,32 @@
   }
   .exp-highlight strong { color: var(--accent); }
 
+  /* BULLET POINTS for experience */
+  .exp-bullets {
+    margin: 0 0 20px 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .exp-bullets li {
+    font-size: 14px;
+    color: rgba(240,237,232,0.65);
+    line-height: 1.7;
+    padding-left: 18px;
+    position: relative;
+  }
+  .exp-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 12px;
+    top: 2px;
+  }
+
   /* PROJECTS */
   #projects { }
   .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
@@ -232,7 +258,31 @@
   .proj-card:hover { background: var(--surface); }
   .proj-num { font-family: var(--mono); font-size: 11px; color: var(--border2); margin-bottom: 20px; letter-spacing: 0.08em; }
   .proj-title { font-family: var(--serif); font-size: 26px; margin-bottom: 12px; line-height: 1.2; }
-  .proj-desc { font-size: 14px; color: rgba(240,237,232,0.6); line-height: 1.7; margin-bottom: 24px; }
+  .proj-desc { font-size: 14px; color: rgba(240,237,232,0.6); line-height: 1.7; margin-bottom: 16px; }
+  .proj-bullets {
+    margin: 0 0 16px 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .proj-bullets li {
+    font-size: 13px;
+    color: rgba(240,237,232,0.6);
+    line-height: 1.65;
+    padding-left: 16px;
+    position: relative;
+  }
+  .proj-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 11px;
+    top: 2px;
+  }
   .proj-impact {
     display: flex; align-items: center; gap: 8px;
     font-family: var(--mono); font-size: 12px; color: var(--accent);
@@ -339,7 +389,7 @@
     <div class="hero-tag">Available for opportunities</div>
     <h1 class="hero-name">Samer<br/><span class="italic">Muhanna</span></h1>
     <p class="hero-title">Software Engineer</p>
-    <p class="hero-desc">I build production level software — from payroll automation processing 100k+ transactions to AI compliance pipelines and full-stack web platforms. UTD Software Engineering graduate.</p>
+    <p class="hero-desc">I build production level software — from payroll automation processing 100k+ transactions to AI compliance pipelines, real-time web platforms, and interactive Unity experiences. UTD Software Engineering graduate.</p>
     <div class="hero-actions">
       <a href="#experience" class="btn-primary">VIEW MY WORK</a>
       <a href="#contact" class="btn-ghost">Let's talk</a>
@@ -351,15 +401,19 @@
       <span class="tech-tag">Java</span>
       <span class="tech-tag">JavaScript</span>
       <span class="tech-tag">Python</span>
+      <span class="tech-tag">C#</span>
       <span class="tech-tag">SQL</span>
       <span class="tech-tag">PHP</span>
+      <span class="tech-tag">Vue.js</span>
       <span class="tech-tag">React</span>
+      <span class="tech-tag">Unity</span>
+      <span class="tech-tag">RabbitMQ</span>
+      <span class="tech-tag">WebSockets</span>
       <span class="tech-tag">Flask</span>
       <span class="tech-tag">Redux</span>
       <span class="tech-tag">PostgreSQL</span>
       <span class="tech-tag">AWS</span>
       <span class="tech-tag">Kubernetes</span>
-      <span class="tech-tag">Splunk</span>
     </div>
   </div>
 </section>
@@ -377,9 +431,13 @@
       </div>
       <div class="exp-content">
         <div class="exp-role">Software Developer II</div>
-        <p class="exp-desc">Maintained and enhanced a high-volume payroll automation platform processing 100k+ transactions per cycle. Led end-to-end design and implementation of an HSA plan automation system — eliminating manual deduction processing that was error-prone across multiple system modules. Built with a PHP MVC backend, Redux-powered React frontend, and a pipe-and-filter validation architecture.</p>
-        <div class="exp-highlight"><strong>~30%</strong> reduction in HSA-related payroll errors · <strong>~25%</strong> fewer redundant API calls via Redux normalization · Zero client-facing defects on release</div>
-        <div class="exp-tags" style="margin-top:16px">
+        <ul class="exp-bullets">
+          <li>Maintained and enhanced a high-volume payroll automation platform processing 100k+ transactions per cycle across multiple system modules.</li>
+          <li>Led end-to-end design and implementation of an HSA plan automation system — eliminating manual deduction processing through a PHP MVC backend, Redux-powered React frontend, and a pipe-and-filter validation architecture.</li>
+          <li>Reduced HSA-related payroll errors by ~30% and cut redundant API calls by ~25% via Redux normalization, with zero client-facing defects on release.</li>
+          <li>Leveraged Splunk for real-time log monitoring and Kubernetes for container orchestration across high-availability deployments.</li>
+        </ul>
+        <div class="exp-tags">
           <span class="exp-tag">PHP</span><span class="exp-tag">React</span><span class="exp-tag">Redux</span><span class="exp-tag">SQL</span><span class="exp-tag">Splunk</span><span class="exp-tag">Kubernetes</span><span class="exp-tag">MVC</span>
         </div>
       </div>
@@ -393,8 +451,12 @@
       </div>
       <div class="exp-content">
         <div class="exp-role">AI Research & Development Intern</div>
-        <p class="exp-desc">Designed and built an automated AI compliance verification system from the ground up. Modeled ISO control points as nodes in a dynamic decision tree — each node defined a question, answer options, and a routing map determining the next question. Integrated a document similarity pipeline using sentence embeddings to score uploaded policy docs against a corpus of certified documents, automatically flagging compliance gaps.</p>
-        <div class="exp-highlight">Compliance verification time <strong>significantly reduced</strong> · Real-time risk dashboard · RBAC with cookie-based auth · Modular architecture designed for Salesforce & SAP integration</div>
+        <ul class="exp-bullets">
+          <li>Designed and built an automated AI compliance verification system from the ground up, modeling ISO 27001 control points as nodes in a dynamic decision tree with branching routing logic.</li>
+          <li>Integrated a document similarity pipeline using sentence embeddings to score uploaded policy docs against certified reference documents, automatically flagging compliance gaps in real time.</li>
+          <li>Delivered a real-time risk dashboard with RBAC and cookie-based auth; built modular architecture designed for Salesforce and SAP integration.</li>
+        </ul>
+        <div class="exp-highlight"><strong>Significant</strong> reduction in compliance verification time · Real-time risk dashboard · Modular architecture designed for Salesforce & SAP integration</div>
         <div class="exp-tags" style="margin-top:16px">
           <span class="exp-tag">Python</span><span class="exp-tag">Flask</span><span class="exp-tag">React</span><span class="exp-tag">Next.js</span><span class="exp-tag">ML/NLP</span><span class="exp-tag">RBAC</span><span class="exp-tag">ISO 27001</span>
         </div>
@@ -409,7 +471,11 @@
       </div>
       <div class="exp-content">
         <div class="exp-role">Rotational IT Intern</div>
-        <p class="exp-desc">Worked across the full development lifecycle in a .NET/C# environment. Applied test-driven development to build and validate HR solutions — starting with failing unit tests and implementing logic until all passed. Investigated and resolved a production data security issue where restricted plan IDs were being incorrectly exported to XML, collaborating with QA and solution designers to define acceptance criteria before writing a line of code.</p>
+        <ul class="exp-bullets">
+          <li>Worked across the full development lifecycle in a .NET/C# environment, applying object-oriented design patterns to build and validate HR automation solutions.</li>
+          <li>Applied test-driven development — writing failing unit tests first, then implementing logic until all passed — collaborating with QA and solution designers to define acceptance criteria upfront.</li>
+          <li>Investigated and resolved a production data security issue where restricted plan IDs were being incorrectly exported to XML, preventing unauthorized data exposure across client deployments.</li>
+        </ul>
         <div class="exp-tags" style="margin-top:16px">
           <span class="exp-tag">C#</span><span class="exp-tag">.NET</span><span class="exp-tag">SQL</span><span class="exp-tag">TDD</span><span class="exp-tag">Selenium</span><span class="exp-tag">Visual Studio</span>
         </div>
@@ -426,21 +492,63 @@
 
     <div class="proj-card fade-up">
       <div class="proj-num">01 / EPICS</div>
-      <h3 class="proj-title">Comet Cupboard Inventory System</h3>
-      <p class="proj-desc">Full-stack inventory and shopping platform built for UTD's food insecurity initiative. Served as both developer and team lead — managed sprint planning via Gantt charts, hosted weekly standups, and enforced code quality through PR review templates with before/after visuals.</p>
-      <div class="proj-impact">Queue system handling ~200 students/day with real-time SSE updates</div>
+      <h3 class="proj-title">Comet Cupboard — Real-Time Inventory Platform</h3>
+      <p class="proj-desc">Full-stack inventory and shopping platform built for UTD's food insecurity nonprofit initiative, serving ~200 students daily. Led the project as developer and team lead.</p>
+      <ul class="proj-bullets">
+        <li>Built dynamic inventory management and shopping interfaces in <strong>Vue 3 + Nuxt.js</strong>, featuring item filtering, live stock counts, and a cart management system with real-time verification.</li>
+        <li>Implemented <strong>Server-Sent Events (SSE)</strong> for push-based cart validation — the UI updates automatically when inventory changes without requiring polling or page refreshes.</li>
+        <li>Architected a <strong>RabbitMQ</strong> message queue to decouple inventory mutation events from downstream consumers, enabling reliable async processing of stock updates and order confirmations at scale.</li>
+        <li>Leveraged <strong>WebSocket</strong> connections for the admin dashboard to stream live data analytics — admins toggle filters, aggregation levels, and view states with sub-second UI response times.</li>
+        <li>Managed sprint planning via Gantt charts, hosted weekly standups, and enforced code quality through PR review templates with before/after visuals.</li>
+      </ul>
+      <div class="proj-impact">RabbitMQ-backed event queue + SSE push updates serving ~200 students/day</div>
       <div class="proj-tags">
-        <span class="proj-tag">Nuxt.js</span><span class="proj-tag">Vue</span><span class="proj-tag">Prisma</span><span class="proj-tag">PostgreSQL</span><span class="proj-tag">Tailwind</span><span class="proj-tag">SSE</span>
+        <span class="proj-tag">Vue 3</span><span class="proj-tag">Nuxt.js</span><span class="proj-tag">RabbitMQ</span><span class="proj-tag">WebSockets</span><span class="proj-tag">SSE</span><span class="proj-tag">Prisma</span><span class="proj-tag">PostgreSQL</span><span class="proj-tag">Tailwind</span>
       </div>
     </div>
 
     <div class="proj-card fade-up">
-      <div class="proj-num">02 / CERTIFICATION</div>
+      <div class="proj-num">02 / GAME DEV</div>
+      <h3 class="proj-title">Unity C# Game Modding & Interactive Systems</h3>
+      <p class="proj-desc">Extended and modified a 3D first-person shooter in Unity using C#, applying object-oriented programming principles to design modular gameplay components and extend existing engine systems.</p>
+      <ul class="proj-bullets">
+        <li>Built a <strong>dynamic enemy spawner</strong> in C# that generates unlimited enemy GameObjects relative to the player's real-time world position — leveraging Unity's transform system and spatial queries for proximity-aware spawning logic.</li>
+        <li>Engineered <strong>custom enemy archetypes</strong> by extending base C# scripts to support distinct movement state machines, including ground pathfinding and 3D air-travel behaviors with physics integration.</li>
+        <li>Applied Unity's <strong>JIT-compiled C# runtime</strong> to write performance-conscious gameplay code — designing modular MonoBehaviour components for reuse across multiple enemy types and interaction systems.</li>
+        <li>Gained practical depth in <strong>OOP patterns within game engines</strong> — inheritance hierarchies, component composition, and event-driven interactions between gameplay objects.</li>
+      </ul>
+      <div class="proj-impact">Modular OOP architecture — extensible enemy AI, physics, and spawning systems</div>
+      <div class="proj-tags">
+        <span class="proj-tag">C#</span><span class="proj-tag">Unity</span><span class="proj-tag">OOP</span><span class="proj-tag">Game Systems</span><span class="proj-tag">Physics</span><span class="proj-tag">AI Pathfinding</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-up">
+      <div class="proj-num">03 / CERTIFICATION</div>
       <h3 class="proj-title">AWS Certified Cloud Practitioner</h3>
       <p class="proj-desc">Built foundational cloud infrastructure knowledge through hands-on labs covering EC2, S3, IAM, RDS, and VPC. Applied CloudWatch monitoring and alarms for application health, configured IAM roles with least-privilege policies, and implemented cloud security best practices across multi-service architectures.</p>
       <div class="proj-impact">Production-ready cloud architecture patterns</div>
       <div class="proj-tags">
         <span class="proj-tag">AWS EC2</span><span class="proj-tag">S3</span><span class="proj-tag">IAM</span><span class="proj-tag">RDS</span><span class="proj-tag">CloudWatch</span><span class="proj-tag">VPC</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-up" style="background: var(--surface2);">
+      <div class="proj-num" style="color: rgba(200,245,66,0.3);">// SUMMARY</div>
+      <h3 class="proj-title" style="font-size:20px; margin-bottom: 20px;">Technical Focus Areas</h3>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="padding: 14px; border: 1px solid var(--border2); background: var(--bg);">
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--accent); margin-bottom: 6px; letter-spacing: 0.08em;">REAL-TIME SYSTEMS</div>
+          <div style="font-size: 13px; color: rgba(240,237,232,0.6); line-height: 1.6;">RabbitMQ message queuing · Server-Sent Events · WebSocket streaming · Event-driven architecture</div>
+        </div>
+        <div style="padding: 14px; border: 1px solid var(--border2); background: var(--bg);">
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--accent); margin-bottom: 6px; letter-spacing: 0.08em;">UNITY & C#</div>
+          <div style="font-size: 13px; color: rgba(240,237,232,0.6); line-height: 1.6;">Gameplay systems · Physics & animation · Modular OOP components · JIT-compiled C# runtime</div>
+        </div>
+        <div style="padding: 14px; border: 1px solid var(--border2); background: var(--bg);">
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--accent); margin-bottom: 6px; letter-spacing: 0.08em;">VUE.JS / NUXT</div>
+          <div style="font-size: 13px; color: rgba(240,237,232,0.6); line-height: 1.6;">Vue 3 Composition API · Dynamic reactive interfaces · SSR with Nuxt · Real-time dashboard UIs</div>
+        </div>
       </div>
     </div>
 
@@ -458,22 +566,23 @@
         <div class="skill-item"><span class="skill-name">Java</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
         <div class="skill-item"><span class="skill-name">JavaScript</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
         <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">C# / .NET</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
         <div class="skill-item"><span class="skill-name">SQL</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
         <div class="skill-item"><span class="skill-name">PHP</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">C#</span><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
         <div class="skill-item"><span class="skill-name">C++</span><div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div></div>
       </div>
     </div>
     <div>
       <div class="skill-group">
         <div class="skill-group-title">// frameworks & tools</div>
+        <div class="skill-item"><span class="skill-name">Vue 3 / Nuxt.js</span><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
         <div class="skill-item"><span class="skill-name">React / Redux</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Unity (C#)</span><div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">RabbitMQ / WebSockets</span><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
         <div class="skill-item"><span class="skill-name">Flask / Python backend</span><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Nuxt.js / Vue</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
         <div class="skill-item"><span class="skill-name">AWS</span><div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Kubernetes / Splunk</span><div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div></div>
         <div class="skill-item"><span class="skill-name">PostgreSQL / Prisma</span><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
-        <div class="skill-item"><span class="skill-name">Git / Agile / Jira</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Kubernetes / Splunk</span><div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div></div>
       </div>
     </div>
   </div>
@@ -486,8 +595,8 @@
   <div class="about-layout">
     <div class="about-text">
       <p>I'm a Software Engineer based in <strong>Dallas, TX</strong>, recently graduated from the University of Texas at Dallas with a BS in Software Engineering. I care deeply about building software that actually works at scale — systems that are reliable, maintainable, and deliver real value.</p>
-      <p>My path has taken me from <strong>test-driven backend development at Insperity</strong>, to designing an AI compliance platform at Secure IVAI, to shipping production payroll automation at Paycom that processes over 100,000 transactions per cycle. Each role has pushed me to adapt quickly to new domains and technologies.</p>
-      <p>Outside of work I'm drawn to problems at the intersection of <strong>systems design, automation, and data</strong> — whether that's modeling complex business logic, building real-time pipelines, or thinking through how software can reduce manual, error-prone processes.</p>
+      <p>My path has taken me from <strong>test-driven backend development at Insperity</strong>, to designing an AI compliance platform at Secure IVAI, to shipping production payroll automation at Paycom processing over 100,000 transactions per cycle. I've also built real-time consumer-facing platforms in <strong>Vue 3 + Nuxt.js</strong> with RabbitMQ-backed event queues and WebSocket-driven dashboards, and explored gameplay systems development in <strong>Unity with C#</strong>.</p>
+      <p>Outside of work I'm drawn to problems at the intersection of <strong>real-time systems, interactive experiences, and data</strong> — whether that's modeling complex business logic, building event-driven pipelines, or designing gameplay systems that need to perform under dynamic constraints.</p>
     </div>
     <div class="about-sidebar">
       <div class="info-block">
